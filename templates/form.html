@@ -2,18 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exhibition Entry Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Exhibition Data</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Exhibition Entry Form</h1>
+        <h1>Exhibition Team Data Form</h1>
         <form method="POST">
-            <input type="text" name="name" placeholder="Enter your name" required><br>
-            <input type="email" name="email" placeholder="Enter your email" required><br>
+            <label>Class:</label>
+            <select name="class_name" required>
+                {% for i in range(4, 13) %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Section:</label>
+            <select name="section" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+            </select>
+
+            <label>Team Name:</label>
+            <input type="text" name="team_name" required>
+
+            <label>Number of Members:</label>
+            <input type="number" name="members" required min="1">
+
+            <label>Model Allotted:</label>
+            <input type="text" name="model" required>
+
             <button type="submit">Submit</button>
         </form>
     </div>
 </body>
 </html>
-
